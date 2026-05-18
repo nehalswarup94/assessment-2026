@@ -1,0 +1,16 @@
+{
+  "name": "Take Home",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [8550, 8551, 8552, 8553],
+  "postCreateCommand": "npm ci",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ckolkman.vscode-postgres",
+        "bruno-api-client.bruno"
+      ]
+    }
+  }
+}

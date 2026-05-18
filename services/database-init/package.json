@@ -1,0 +1,8 @@
+{
+  "name": "database-init",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "init": "./init.sh"
+  }
+}

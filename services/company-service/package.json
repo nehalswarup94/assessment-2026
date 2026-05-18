@@ -1,0 +1,21 @@
+{
+  "name": "company-service",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "database-init": "*",
+    "express": "^5.1.0",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.15.0",
+    "@types/pg": "^8.11.6",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}

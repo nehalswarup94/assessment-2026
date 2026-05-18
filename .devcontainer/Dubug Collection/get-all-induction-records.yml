@@ -1,0 +1,8 @@
+info:
+  name: Get All Induction Records
+  type: http
+  seq: 4
+
+http:
+  method: GET
+  url: http://localhost:8552/induction/records/all
