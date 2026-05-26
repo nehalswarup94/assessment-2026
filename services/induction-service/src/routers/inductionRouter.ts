@@ -26,7 +26,12 @@ router.get("/records/all", async (_req, res) => {
 router.get("/:id/records", async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await inductionService.getInductionRecords(id);
+    const { status } = req.query;
+
+    const result = await inductionService.getInductionRecords(id, {
+      status: typeof status === "string" ? status : undefined,
+    });
+
     res.json(result);
   } catch (error) {
     console.error("Error fetching induction records:", error);

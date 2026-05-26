@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build"
+    "build": "tsc -b && vite build",
+    "test:e2e": "npx playwright test --config=playwright.config.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
