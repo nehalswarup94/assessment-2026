@@ -9,7 +9,8 @@
   ],
   "scripts": {
     "dev": "turbo dev",
-    "build": "turbo build"
+    "build": "turbo build",
+    "init": "npm --workspace=database-init run init"
   },
   "devDependencies": {
     "turbo": "^2.9.12"
