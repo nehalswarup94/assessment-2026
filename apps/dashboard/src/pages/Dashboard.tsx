@@ -82,6 +82,7 @@ function Dashboard() {
   const [selectedInductionId, setSelectedInductionId] = useState<string>("");
   const [records, setRecords] = useState<InductionRecord[]>([]);
   const [preferences, setPreferences] = useState<UserPreferences>(DEFAULT_PREFERENCES);
+  const [searchInput, setSearchInput] = useState<string>(DEFAULT_PREFERENCES.search);
   const [loading, setLoading] = useState(true);
   const [loadingRecords, setLoadingRecords] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -103,6 +104,7 @@ function Dashboard() {
 
         setInductions(inductionList);
         setPreferences((prev) => ({ ...prev, ...savedPreferences }));
+        setSearchInput(savedPreferences.search ?? DEFAULT_PREFERENCES.search);
         setSelectedInductionId(inductionList[0]?.id ?? "");
       } catch (err) {
         console.error(err);
@@ -140,6 +142,14 @@ function Dashboard() {
 
     loadRecords();
   }, [selectedInductionId, preferences]);
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      setPreferences((current) => ({ ...current, search: searchInput }));
+    }, 600);
+
+    return () => window.clearTimeout(timeout);
+  }, [searchInput]);
 
   useEffect(() => {
     const timeout = window.setTimeout(() => {
@@ -243,8 +253,8 @@ function Dashboard() {
             <Stack direction={{ xs: "column", sm: "row" }} spacing={2} mb={2}>
               <TextField
                 label="Search"
-                value={preferences.search}
-                onChange={(event) => updatePreference("search", event.target.value)}
+                value={searchInput}
+                onChange={(event) => setSearchInput(event.target.value)}
                 fullWidth
                 placeholder="Search by name or company"
               />
