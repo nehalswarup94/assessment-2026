@@ -375,6 +375,9 @@ npm --workspace=company-service run dev
 npm --workspace=dashboard run dev
 ```
 
+### Test Cases
+I have integrated playwright and written few test cases. This needs refinement.
+
 ### Verifying the Implementation
 
 1. **View Inductions List**: Open the dashboard and verify all inductions appear with correct pending counts
@@ -389,3 +392,13 @@ npm --workspace=dashboard run dev
 ## Conclusion
 
 The Induction Dashboard successfully implements all requirements through a coordinated combination of backend enhancements, database schema updates, and a modern React frontend. The gateway architecture ensures scalability and maintainability, while the preference storage system enhances user productivity through personalized workflows.
+
+
+## Next Steps
+To make this code production ready, below updates should be made:
+1. Use environment variables for API URLs.
+2. Logging will be done with proper log messages.
+3. Proper error handling based on each error code returned, show fallback UI as well
+4. Include accessability like keyboard navigation, screen reader support
+5. Sensitive information like the database connection parameters should be stored in vault or encrypted in the code.
+6. Authentication should be added, API should validate the user based on token before execution.
